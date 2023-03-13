@@ -23,13 +23,15 @@ const EditContact = ({ route }) => {
   );
 
   useEffect(() => {
-    setName(currentContact.name);
+    setFirstName(currentContact.firstName);
+    setLastName(currentContact.lastName);
     setNumber(currentContact.number);
     setEmail(currentContact.email);
     setCompany(currentContact.company);
   }, [currentContact]);
 
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName,setLastName]= useState("");
   const [number, setNumber] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
@@ -39,7 +41,8 @@ const EditContact = ({ route }) => {
   const onEditContact = () => {
     const edit_contact = {
       id: route.params,
-      name: name,
+      firstName: firstName,
+      lastName : lastName,
       number: number,
       company: company,
       email: email,
@@ -48,7 +51,7 @@ const EditContact = ({ route }) => {
 
     if (edit_contact.number.length < 10) alert("Invalid Number");
     else if (
-      edit_contact.name &&
+      edit_contact.firstName &&
       edit_contact.number &&
       edit_contact.number.length == 10
     ) {
@@ -74,20 +77,38 @@ const EditContact = ({ route }) => {
         Edit Contact
       </Text>
 
+      <View style={{flexDirection : "row" , marginTop: 20}}>
       <TextInput
         style={{
           borderColor: "Tomato",
           borderWidth: 1,
           padding: 10,
-          margin: 10,
-          width: "80%",
+          margin: 5,
+          width: "44%",
           borderRadius: 30,
         }}
-        placeholder="Enter Name"
+        placeholder="First Name"
         maxLength={50}
-        onChangeText={(text) => setName(text)}
-        value={name}
+        onChangeText={(text) => setFirstName(text)}
+        value={firstName}
       />
+      <TextInput
+        style={{
+          borderColor: "Tomato",
+          borderWidth: 1,
+          padding: 10,
+          margin: 5,
+          width: "43%",
+          borderRadius: 30,
+        }}
+        placeholder="Last Name"
+        maxLength={50}
+        onChangeText={(text) => setLastName(text)}
+        value={lastName}
+      />
+
+
+      </View>
 
       <TextInput
         style={{
@@ -95,7 +116,7 @@ const EditContact = ({ route }) => {
           borderWidth: 1,
           padding: 10,
           margin: 10,
-          width: "80%",
+          width: "90%",
           borderRadius: 30,
         }}
         keyboardType="numeric"
@@ -110,7 +131,7 @@ const EditContact = ({ route }) => {
           borderWidth: 1,
           padding: 10,
           margin: 10,
-          width: "80%",
+          width: "90%",
           borderRadius: 30,
         }}
         placeholder="Enter Email"
@@ -123,7 +144,7 @@ const EditContact = ({ route }) => {
           borderWidth: 1,
           padding: 10,
           margin: 10,
-          width: "80%",
+          width: "90%",
           borderRadius: 30,
         }}
         placeholder="Enter Company"
@@ -136,13 +157,13 @@ const EditContact = ({ route }) => {
           borderWidth: 1,
           padding: 10,
           margin: 10,
-          width: "80%",
+          width: "90%",
           borderRadius: 30,
           alignItems: "center",
         }}
         onPress={() => onEditContact()}
       >
-        <Text style={{ color: "white" }}> Add </Text>
+        <Text style={{ color: "white" }}> Submit </Text>
       </TouchableOpacity>
     </View>
   );

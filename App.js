@@ -39,10 +39,12 @@ const App = () => {
             headerTitleAlign: 'center',
             headerStyle: {
               backgroundColor: 'orange',
+              
             },
             headerTintColor: 'white',
             headerTitleStyle: {
               fontWeight: '800',
+            
             },
           }} >
           <Stack.Screen

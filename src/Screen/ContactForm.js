@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
+  Button
 } from "react-native";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,7 +15,8 @@ import { useNavigation } from "@react-navigation/native";
 const ContactForm = () => {
   const navigation = useNavigation();
 
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName,setLastName]= useState("");
   const [number, setNumber] = useState("");
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
@@ -32,14 +34,15 @@ const ContactForm = () => {
 
     const add_contact = {
       id: Math.random(),
-      name: name,
+      firstName: firstName,
+      lastName : lastName,
       number: number,
       company: company,
       email: email,
     };
 
     for (let val of originalContactList) {
-      if (val.name.toLowerCase() == name.toLowerCase()) duplicateName = true;
+      if (val.firstName.toLowerCase() == firstName.toLowerCase() && val.lastName.toLowerCase()==lastName.toLowerCase()) duplicateName = true;
     }
     for (let val of originalContactList) {
       if (val.number == number) duplicateNumber = true;
@@ -51,7 +54,8 @@ const ContactForm = () => {
       if (add_contact.number.length < 10 && add_contact.number.length > 0)
         alert("Invalid Number");
       else if (
-        add_contact.name &&
+        add_contact.firstName &&
+        add_contact.lastName&&
         add_contact.number &&
         add_contact.number.length == 10
       ) {
@@ -78,33 +82,50 @@ const ContactForm = () => {
         Add New Contact
       </Text>
 
+      <View style={{flexDirection : "row" , marginTop: 20}}>
       <TextInput
         style={{
           borderColor: "Tomato",
           borderWidth: 1,
           padding: 10,
-          margin: 10,
-          width: "80%",
+          margin: 5,
+          width: "44%",
           borderRadius: 30,
         }}
-        placeholder="Enter Name"
+        placeholder="First Name"
         maxLength={50}
-        onChangeText={(text) => setName(text)}
-        value={name}
+        onChangeText={(text) => setFirstName(text)}
+        value={firstName}
+      />
+      <TextInput
+        style={{
+          borderColor: "Tomato",
+          borderWidth: 1,
+          padding: 10,
+          margin: 5,
+          width: "43%",
+          borderRadius: 30,
+        }}
+        placeholder="Last Name"
+        maxLength={50}
+        onChangeText={(text) => setLastName(text)}
+        value={lastName}
       />
 
+
+      </View>
       <TextInput
         style={{
           borderColor: "Tomato",
           borderWidth: 1,
           padding: 10,
           margin: 10,
-          width: "80%",
+          width: "90%",
           borderRadius: 30,
         }}
         keyboardType="numeric"
         maxLength={10}
-        placeholder="Enter Number"
+        placeholder="Number"
         onChangeText={(text) => setNumber(text)}
         value={number}
       />
@@ -114,10 +135,10 @@ const ContactForm = () => {
           borderWidth: 1,
           padding: 10,
           margin: 10,
-          width: "80%",
+          width: "90%",
           borderRadius: 30,
         }}
-        placeholder="Enter Email"
+        placeholder="Email"
         onChangeText={(text) => setEmail(text)}
         value={email}
       />
@@ -127,10 +148,10 @@ const ContactForm = () => {
           borderWidth: 1,
           padding: 10,
           margin: 10,
-          width: "80%",
+          width: "90%",
           borderRadius: 30,
         }}
-        placeholder="Enter Company"
+        placeholder="Company"
         onChangeText={(text) => setCompany(text)}
         value={company}
       />
@@ -140,7 +161,7 @@ const ContactForm = () => {
           borderWidth: 1,
           padding: 10,
           margin: 10,
-          width: "80%",
+          width: "90%",
           borderRadius: 30,
           alignItems: "center",
         }}

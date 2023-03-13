@@ -7,98 +7,113 @@ export const intialState = {
 
         {
             id: 0,
-            name: 'Agnus',
+            firstName: 'Agnus',
+            lastName : 'Silvia',
+
             number: '9848200000',
             company: 'Optum',
             email: 'agnus@gmail.com'
         },
         {
             id: 1,
-            name: 'Rahul',
+            firstName: 'Rahul',
+            lastName : 'Arigela',
             number: '9848311111',
             company: 'Optum',
             email: 'Rahul@gmail.com'
         },
         {
             id: 2,
-            name: 'Varun',
+            firstName: 'Varun',
+            lastName : 'Mehta',
             number: '9848522222',
             company: 'Optum',
             email: 'Varun@gmail.com'
         },
         {
             id: 3,
-            name: 'Isha',
+            firstName: 'Isha',
+            lastName : 'Sharma',
             number: '9848633333',
             company: 'Optum',
             email: 'Isha@gmail.com'
         },
         {
             id: 4,
-            name: 'Amit',
+            firstName: 'Amit',
+            lastName : 'Pandey',
             number: '9848644444',
             company: 'Optum',
             email: 'Amit@gmail.com'
         },
         {
             id: 5,
-            name: 'Munaff',
+            firstName: 'Munaff',
+            lastName : 'Basha',
             number: '9848755555',
             company: 'Optum',
             email: 'Munaff@gmail.com'
         },
         {
             id: 6,
-            name: 'Shyam',
+            firstName: 'Shyam',
+            lastName : 'Komirishetty',
             number: '9848766666',
             company: 'Optum',
             email: 'Shyam@gmail.com'
         },
         {
             id: 7,
-            name: 'Raman',
+            firstName: 'Raman',
+            lastName : 'Sindhu',
             number: '9848877777',
             company: 'Optum',
             email: 'Raman@gmail.com'
         },
         {
             id: 8,
-            name: 'Shipra',
+            firstName: 'Shipra',
+            lastName : 'Sharma',
             number: '9848888888',
             company: 'Optum',
             email: 'Kshipra@gmail.com'
         },
         {
             id: 9,
-            name: 'Swapna',
+            firstName: 'Swapna',
+            lastName : 'Juluru',
             number: '9848999999',
             company: 'Optum',
             email: 'Swapna@gmail.com'
         },
         {
             id: 10,
-            name: 'Shourya',
+            firstName: 'Shourya',
+            lastName : 'Arya',
             number: '9848900001',
             company: 'Optum',
             email: 'Shourya@gmail.com'
         },
         {
             id: 11,
-            name: 'Ramesh',
+            firstName: 'Ramesh',
+            lastName : 'Mukalla',
             number: '9848900002',
             company: 'Optum',
             email: 'Ramesh@gmail.com'
         },
         {
             id: 12,
-            name: 'Praneeth',
+            firstName: 'Praneeth',
+            lastName : 'Kuruwa',
             number: '9848900003',
             company: 'Optum',
             email: 'Praneeth@gmail.com'
         },
         {
             id: 13,
-            name: 'Yashi',
+            firstName: 'Yashi',
+            lastName : 'Sharma',
             number: '9848900004',
             company: 'Optum',
             email: 'Yashi@gmail.com'

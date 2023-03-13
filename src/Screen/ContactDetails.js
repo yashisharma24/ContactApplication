@@ -1,5 +1,5 @@
 
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity,PixelRatio } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 import React, { useState } from 'react'
@@ -16,7 +16,7 @@ import Communications from 'react-native-communications'
 const ContactDetails = ({ route, navigation, store }) => {
 
 
-    const { id, name, number, company, email } = route.params;
+    const { id, firstName, number, company, email } = route.params;
 
     
 
@@ -37,7 +37,7 @@ const ContactDetails = ({ route, navigation, store }) => {
                     <View style={styles.skyBlue}></View>
                     <View style={styles.imageWrapper}>
                         <FontAwesome name='user' color="orange" size={160} />
-                        <Text style={styles.name}>{name}</Text>
+                        <Text style={styles.name}>{firstName}</Text>
                     </View>
                 </View>
                 <View>
@@ -57,30 +57,29 @@ const ContactDetails = ({ route, navigation, store }) => {
                 </View>
             </View>
             <View style={styles.iconStyle}>
-                <IconEntypo style={{ marginLeft: 20, marginRight: 20 }}   // call it from styles
-                    testID="delete"
-                    name="phone"
-                    size={30}
-                    marginLeft={20}
-                    onPress={() => Communications.phonecall(number, true)}    // TODO : calling is not working on IOS. figure out
-                />
+            <FontAwesome 
+                            name='phone' 
+                            size={30} 
+                            style={{ marginRight: 20 ,marginLeft: 20}}     
+                            onPress={() => Communications.phonecall(number, true)}/>   
+                
                 <IconEntypo style={{ marginLeft: 20, marginRight: 20 }}
                     testID="details"
                     name="message"
-                    size={30}
+                    size={30 * PixelRatio.getFontScale() }
                     onPress={() => Communications.text(number, null)}
                 />
                 <IconEntypo style={{ marginLeft: 20, marginRight: 20 }}
                     testID="delete"
                     name="trash"
-                    size={25}
+                    size={25* PixelRatio.getFontScale()}
                     onPress={() => onDeleteContact()}
                 />
 
                  <IconEntypo style={{marginLeft: 20, marginRight:20}}
                     testID="editcontact"
                     name="pencil"
-                    size={30}
+                    size={30* PixelRatio.getFontScale()}
                     onPress={()=>navigation.navigate('EditContact', id)}
 
                 /> 
